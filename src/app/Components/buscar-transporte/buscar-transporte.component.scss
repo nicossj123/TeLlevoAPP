@@ -1,3 +1,31 @@
-p{
-    margin-top: 200px;
+h1{
+    font-family: 'Erica One', cursive;
+}
+
+#app{
+    color: black;
+}
+
+#tellevo{
+   color: #FFB800;
+   padding-left: 10px;
+}
+
+ion-toolbar{
+    --background: white;
+}
+
+ion-content{
+    --background: #1A1A1A;
+}
+
+ion-card{
+    --background: white;
+    margin-top: 80px;
+}
+
+#viajes{
+    font-family: 'Silkscreen', cursive;
+    font-size: medium;
+    text-align: center;
 }
