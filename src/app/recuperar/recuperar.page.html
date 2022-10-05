@@ -1,0 +1,52 @@
+<ion-header>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Erica+One&family=Montserrat:wght@500&family=Silkscreen&display=swap"
+    rel="stylesheet">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid class="ion-no-padding">
+    <!--Header-->
+    <ion-row id="header1">
+      <ion-col size="12">
+        <h1 class="titulo1" #animar1>TeLlevo<span class="titulo_app1">APP</span></h1>
+      </ion-col>
+    </ion-row>
+
+    <div id="cuerpo1">
+      <ion-row id="ingresa">
+        <ion-col size="12">
+          <p id="parrafo">Ingresa tu correo duoc y luego te enviaremos un correo para quen puedas reestablecer tu
+            contrase&ntilde;a</p>
+        </ion-col>
+      </ion-row>
+
+      <!--Input correo-->
+      <ion-row>
+        <ion-col size="10" offset="1">
+          <ion-item>
+            <ion-label position="floating">Ingrese correo institucional</ion-label>
+            <ion-input type="email" [(ngModel)]="correo.email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" id="boton_recibir">
+          <ion-button color="dark" expand="full" (click)="enviar()" ><b>Recibir correo</b></ion-button>
+        </ion-col>
+      </ion-row>
+
+      <!--Boton volver-->
+      <ion-row id="boton_volver">
+        <ion-col size="12">
+          <ion-button expand="full" color="light" [routerLink]="['/login']">Volver</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+
+  </ion-grid>
+</ion-content>

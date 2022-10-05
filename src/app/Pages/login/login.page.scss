@@ -1,0 +1,42 @@
+ion-content.background{
+    --background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Duoc_UC%2C_Vi%C3%B1a_del_Mar_20200120_05.jpg/1280px-Duoc_UC%2C_Vi%C3%B1a_del_Mar_20200120_05.jpg) 10% no-repeat;
+}
+
+#titulo{
+    margin-top: 16vh;
+    text-align: center;
+    font-family: 'Erica One', cursive;
+    background-color: white;
+}
+
+h1{
+    font-size: 37px;
+}
+
+h1 .app_titulo{
+    color: #FFB800;
+}
+
+.form-group{
+    margin-top: 24vh;
+   
+}
+
+#ingresar{
+    justify-content: center;
+}
+
+#recuperar_pass{
+    text-align: center;
+    margin-top: 6vh;
+    background-color: white;
+    font-size: smaller;
+}
+
+a{
+    text-decoration: none;
+}
+
+#input_user{
+    margin-bottom: 2vh;
+}

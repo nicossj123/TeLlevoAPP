@@ -1,0 +1,19 @@
+<ion-header class="header">
+  <ion-toolbar>
+    <h1 class="titulo_app">TeLlevo<span class="titulo">App</span></h1>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment value="BuscarTransporte" (ionChange)="segmentChanged($event)" >
+      <ion-segment-button value="LlevarAlumno">
+        <ion-label>Llevar alumno</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="BuscarTransporte">
+        <ion-label>Buscar transporte</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+</ion-content>

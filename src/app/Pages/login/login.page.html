@@ -1,0 +1,55 @@
+<ion-header>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Erica+One&family=Silkscreen&display=swap"
+    rel="stylesheet">
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true" class="background" id="Contenido">
+  <ion-grid class="ion-no-padding">
+    <!--Titulo (TeLlevoAPP)-->
+    <ion-row id="titulo" #animar1>
+      <ion-col size="12">
+        <h1>TeLlevo<span class="app_titulo">APP</span></h1>
+      </ion-col>
+    </ion-row>
+
+
+    <!--Formulario de inicio de sesion-->
+    <div class="form-group">
+      <!--Input usuario-->
+      <ion-row>
+        <ion-col size="8" offset="2" id="input_user">
+          <ion-item>
+            <ion-label position="floating">Usuario</ion-label>
+            <ion-input type="text" [(ngModel)]="user.usuario" maxlength="20"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <!--Input password-->
+      <ion-row>
+        <ion-col size="8" offset="2" id="col_pass">
+          <ion-item>
+            <ion-label position="floating">Contrase&ntilde;a</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" offset="4">
+          <ion-button color="dark" (click)="ingresar()"><b>Ingresar</b></ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <!--Recuperar contrasena-->
+    <ion-row id="recuperar_pass">
+      <ion-col size="12">
+        <a [routerLink]="['/recuperar']">Recuperar contrase&ntilde;a</a>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
