@@ -16,15 +16,15 @@ export class HomePage{
   user:any;
 
   constructor(private router: Router, private activeroute: ActivatedRoute, private animationCtrl: AnimationController) {
-    this.activeroute.queryParams.subscribe(params => { 
+   /* this.activeroute.queryParams.subscribe(params => { 
       if (this.router.getCurrentNavigation().extras.state) { 
         this.user = this.router.getCurrentNavigation().extras.state.user; 
         this.router.navigate(["/home/BuscarTransporte"])
       }else{this.router.navigate(["/login"])} 
-    });
+    });*/
   }
 
-  ngAfterViewInit(){
+/*  ngAfterViewInit(){
     const animar1 = this.animationCtrl.create()
     .addElement(this.animar1.nativeElement)
     .duration(1500)
@@ -36,11 +36,11 @@ export class HomePage{
   
     animar.play()
   
-  }
+  }*/
 
   segmentChanged($event){
     let segmento=$event.detail.value;
-    console.log(segmento);
-    this.router.navigate(['home/'+segmento]);
+    console.log('/home/'+segmento);
+    this.router.navigate(['/home/'+segmento]);
   }
 }
