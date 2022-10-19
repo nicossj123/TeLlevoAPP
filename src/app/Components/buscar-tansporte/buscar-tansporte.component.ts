@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/Servicios/storage.service';
 import { ApiserviceService } from 'src/app/Servicios/apiservice.service';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-buscar-tansporte',
@@ -9,29 +10,31 @@ import { ApiserviceService } from 'src/app/Servicios/apiservice.service';
 })
 export class BuscarTansporteComponent implements OnInit {
 
-  
-  constructor(private storage: StorageService, private api: ApiserviceService) { }
-  
+
+  constructor(private storageService: StorageService, private api: ApiserviceService, private storage: Storage) { }
+
 
   ngOnInit() {
     this.getUsers();
     this.getUser();
-    console.log(this.user)
   }
 
-  user : any;
-  users : any;
-  usuarios : any[]=[];
+  user: any;
+  users: any;
+  usuarios: any[] = [];
 
-  getUser(){
-    this.user = this.storage.obtenerItem();
+  getUser() {
+    this.storage.get('usuario').then((result => {
+      console.log(result)
+    }))
+
   }
 
 
-  getUsers(){
-    this.api.getUsuarios().subscribe((data)=>{
-      this.users=data;
-      this.usuarios=this.users.alumnos     
+  getUsers() {
+    this.api.getUsuarios().subscribe((data) => {
+      this.users = data;
+      this.usuarios = this.users.alumnos
     });
   }
 

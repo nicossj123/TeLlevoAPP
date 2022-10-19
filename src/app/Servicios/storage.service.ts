@@ -8,22 +8,22 @@ import { Viajes } from '../Interfaces/viajes';
 })
 export class StorageService {
 
-  constructor(private storage: Storage){
+  constructor(private storage: Storage) {
     this.init();
   }
 
-  async init(){
+  async init() {
     const storage = await this.storage.create()
   }
 
-  guardarItem(key,value){
-    this.storage.set(key,value)
+  guardarItem(key, value) {
+    this.storage.set(key, value)
   }
 
-  obtenerItem(){
-    this.storage.get('usuario')
+  async obtenerItem() {
+    return this.storage.get('usuario');
   }
-  
+
   /*async cargarViajes(listado: any){
     const misViajes= await this.storage.get('Viajes');
     if(misViajes){
