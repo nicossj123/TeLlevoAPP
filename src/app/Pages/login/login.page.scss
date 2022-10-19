@@ -17,11 +17,6 @@ h1 .app_titulo{
     color: #FFB800;
 }
 
-.form-group{
-    margin-top: 24vh;
-   
-}
-
 #ingresar{
     justify-content: center;
 }
@@ -39,4 +34,25 @@ a{
 
 #input_user{
     margin-bottom: 2vh;
+}
+
+ion-card{
+    margin-top: 170px;
+    text-align: center;
+}
+
+ion-card-title{
+    font-size: medium;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ion-button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    --background:white;
+    --color: #1A1A1A;
+    --border-style: solid;
+    --border-color: #1A1A1A;
+    
 }

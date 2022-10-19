@@ -1,0 +1,36 @@
+ion-content{
+    --background: #1A1A1A;
+}
+
+ion-card{
+    margin-top: 180px;
+}
+
+ion-label{
+    font-size: smaller;
+}
+
+p{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    font-family: 'Erica One', cursive;
+    color: #1A1A1A;
+    text-align: center;
+    font-size: medium;
+}
+
+ion-input{
+    border-style: solid;
+    border-color: #1A1A1A;
+    margin-bottom: 12px;
+}
+
+ion-button{
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    --border-color: black;
+    --background: #1A1A1A;
+}

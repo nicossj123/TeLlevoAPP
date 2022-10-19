@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BuscarTransporteComponent } from '../Components/buscar-transporte/buscar-transporte.component';
-import { LlevarAlumnoComponent } from '../Components/llevar-alumno/llevar-alumno.component';
+import { BuscarTansporteComponent } from '../Components/buscar-tansporte/buscar-tansporte.component';
+import { CrearViajeComponent } from '../Components/crear-viaje/crear-viaje.component';
 import { HomePage } from './home.page';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
-    children: [
+    children:[
       {
         path: 'BuscarTransporte',
-        component: BuscarTransporteComponent
+        component: BuscarTansporteComponent
       },
       {
-        path: 'LlevarAlumno',
-        component: LlevarAlumnoComponent
+        path: 'CrearViaje',
+        component: CrearViajeComponent
       }
     ]
   }

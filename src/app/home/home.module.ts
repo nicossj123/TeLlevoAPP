@@ -6,7 +6,8 @@ import { HomePage } from './home.page';
 
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { BuscarTransporteComponent } from '../Components/buscar-transporte/buscar-transporte.component';
+import { BuscarTansporteComponent } from '../Components/buscar-tansporte/buscar-tansporte.component';
+
 
 
 
@@ -17,6 +18,6 @@ import { BuscarTransporteComponent } from '../Components/buscar-transporte/busca
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, BuscarTransporteComponent]
+  declarations: [HomePage, BuscarTansporteComponent]
 })
 export class HomePageModule {}

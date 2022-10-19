@@ -1,0 +1,46 @@
+.titulo_app {
+    color: #FFB800;
+    font-family: 'Erica One', cursive;
+    font-size: 37px;
+    text-align: center;
+}
+
+.titulo {
+    font-family: 'Erica One', cursive;
+    font-size: 37px;
+    text-align: center;
+    color: black;
+}
+
+ion-content{
+    --background: #1A1A1A; 
+}
+
+ion-header{
+    --background: white;
+}
+
+#animacion{
+    width: 350px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ion-card{
+    margin-top: 50px;
+    text-align: center;
+}
+
+#ups{
+    font-family: 'Bebas Neue', cursive;
+    color: #1A1A1A;
+}
+
+ion-button{
+    --background:white;
+    --color: #1A1A1A;
+    --border-style: solid;
+    --border-color: #1A1A1A;
+    
+}

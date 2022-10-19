@@ -1,8 +1,7 @@
 <ion-header>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Erica+One&family=Silkscreen&display=swap"
-    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Erica+One&family=Montserrat:wght@500&family=Silkscreen&display=swap" rel="stylesheet">
 </ion-header>
 
 
@@ -16,33 +15,20 @@
       </ion-col>
     </ion-row>
 
-
-    <!--Formulario de inicio de sesion-->
-    <div class="form-group">
-      <!--Input usuario-->
-      <ion-row>
-        <ion-col size="8" offset="2" id="input_user">
-          <ion-item>
-            <ion-label position="floating">Usuario</ion-label>
-            <ion-input type="text" [(ngModel)]="user.usuario" maxlength="20"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <!--Input password-->
-      <ion-row>
-        <ion-col size="8" offset="2" id="col_pass">
-          <ion-item>
-            <ion-label position="floating">Contrase&ntilde;a</ion-label>
-            <ion-input type="password"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="6" offset="4">
-          <ion-button color="dark" (click)="ingresar()"><b>Ingresar</b></ion-button>
-        </ion-col>
-      </ion-row>
-    </div>
+    <ion-card>
+      <ion-card-title>Ingrese su usuario y contrase&ntilde;a</ion-card-title>
+      <form [formGroup]="formularioLogin">
+        <ion-item>
+          <ion-input formControlName="usuario" placeholder="Usuario"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="password" placeholder="Contrase&ntilde;a" type="password"></ion-input>
+        </ion-item>
+      </form>
+      <ion-button (click)="ingresar()"><b>Ingresar</b></ion-button>
+    </ion-card>
+    
+    
 
     <!--Recuperar contrasena-->
     <ion-row id="recuperar_pass">
@@ -52,4 +38,6 @@
     </ion-row>
 
   </ion-grid>
+
+  
 </ion-content>

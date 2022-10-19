@@ -11,34 +11,11 @@ import { Animation, AnimationController } from '@ionic/angular';
 })
 export class HomePage{
 
-  @ViewChild('animar1',{read : ElementRef, static: true}) animar1: ElementRef;
-
-  user:any;
-
   constructor(private router: Router, private activeroute: ActivatedRoute, private animationCtrl: AnimationController) {
-    this.activeroute.queryParams.subscribe(params => { 
-      if (this.router.getCurrentNavigation().extras.state) { 
-        this.user = this.router.getCurrentNavigation().extras.state.user; 
-        this.router.navigate(["/home/BuscarTransporte"])
-      }else{this.router.navigate(["/login"])} 
-    });
+    this.router.navigate(["/home/BuscarTransporte"])
   }
-
-  ngAfterViewInit(){
-    const animar1 = this.animationCtrl.create()
-    .addElement(this.animar1.nativeElement)
-    .duration(1500)
-    .fromTo('transform', 'translateX(-200px)', 'translateX(0px)')
-    .iterations(1)
   
-    const animar = this.animationCtrl.create()
-      .addAnimation([animar1]);
-  
-    animar.play()
-  
-  }
-
-  segmentChanged($event){
+   segmentChanged($event){
     let segmento=$event.detail.value;
     console.log(segmento);
     this.router.navigate(['home/'+segmento]);

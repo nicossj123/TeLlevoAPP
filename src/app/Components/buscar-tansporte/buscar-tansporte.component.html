@@ -1,0 +1,28 @@
+<ion-app>
+    <ion-header>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Erica+One&family=Montserrat:wght@500&family=Silkscreen&display=swap"
+        rel="stylesheet">
+      <ion-toolbar>
+        <h1 id="tellevo">TeLlevo<span id="app">APP</span></h1>
+        <ion-back-button defaultHref="home" slot="end"></ion-back-button>
+      </ion-toolbar>
+  
+    </ion-header>
+  
+    <ion-content>
+      <ion-card>
+        <ion-card-title><h1 id="viajes">Viajes disponibles</h1></ion-card-title>
+        <ion-card-subtitle><p>{{user}}</p></ion-card-subtitle>
+          <ion-item>
+            <ion-list>
+              <div *ngFor="let aux of usuarios">
+                <ion-item><p>{{aux}}<span slot="end"> Kia rio 2047</span><ion-button>Unirse</ion-button> 0/4<ion-icon name="people"></ion-icon></p></ion-item>
+              </div>
+            </ion-list> 
+          </ion-item>        
+      </ion-card>
+    </ion-content>
+  </ion-app>
