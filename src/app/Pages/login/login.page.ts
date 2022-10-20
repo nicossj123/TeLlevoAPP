@@ -67,8 +67,8 @@ export class LoginPage implements OnInit {
       this.presentToast("Su usuario o contrase&ntildea no con correctas",)
     } else {
       this.storage.guardarItem('usuario', resultado);
-      this.storage.guardarItem('ingresado','true');
-      this.router.navigate(['/home/BuscarTransporte'])
+      localStorage.setItem('ingresado', 'true');
+      this.router.navigate(['/home/BuscarTransporte']);
     }
 
 

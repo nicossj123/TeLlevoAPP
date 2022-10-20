@@ -20,4 +20,8 @@ export class HomePage{
     console.log('/home/'+segmento);
     this.router.navigate(['/home/'+segmento]);
   }
+
+  cerrarSesion(){
+    localStorage.removeItem('ingresado')
+  }
 }

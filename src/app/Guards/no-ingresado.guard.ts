@@ -8,12 +8,17 @@ import { Storage } from '@ionic/storage';
 })
 export class NoIngresadoGuard implements CanActivate {
   
-  constructor(private storage: Storage, private router: Router){}
+  constructor(private router: Router){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true; 
+    if(localStorage.getItem('ingresado')){
+      this.router.navigate(['/home/'])
+      return false;
+    }else{
+      return true;
+    }
   }
   
 }
