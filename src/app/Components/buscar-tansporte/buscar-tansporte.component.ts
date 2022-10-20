@@ -3,6 +3,7 @@ import { StorageService } from 'src/app/Servicios/storage.service';
 import { ApiserviceService } from 'src/app/Servicios/apiservice.service';
 import { Storage } from '@ionic/storage-angular';
 import { AlertController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buscar-tansporte',
@@ -12,7 +13,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 export class BuscarTansporteComponent implements OnInit {
 
 
-  constructor(private storageService: StorageService, private api: ApiserviceService, private storage: Storage, private toastCtrl: ToastController) { }
+  constructor(private storageService: StorageService, private api: ApiserviceService, private storage: Storage, private toastCtrl: ToastController, private router: Router) { }
 
 
   ngOnInit() {
