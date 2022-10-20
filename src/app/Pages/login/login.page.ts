@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ElementRef, ViewChild } from '@angula
 import { NavigationExtras, Router } from '@angular/router';
 import { Animation, AnimationController, ToastController } from '@ionic/angular';
 import { ApiserviceService } from 'src/app/Servicios/apiservice.service';
-import {FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { StorageService } from 'src/app/Servicios/storage.service';
 
@@ -24,15 +24,15 @@ export class LoginPage implements OnInit {
   field: string = ""
   constructor(private router: Router, private animationCtrl: AnimationController, public toastCtrl: ToastController, private api: ApiserviceService, public fb: FormBuilder, private alertController: AlertController, private storage: StorageService) {
     this.formularioLogin = this.fb.group({
-      'usuario': new FormControl("",Validators.required),
-      'password': new FormControl("",Validators.required)
+      'usuario': new FormControl("", Validators.required),
+      'password': new FormControl("", Validators.required)
     })
-   }
+  }
 
   ngOnInit() {
   }
 
-  async presentAlert(){
+  async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Datos incompletos',
       subHeader: 'Debes llenar todos los campos',
@@ -41,15 +41,17 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  ingresar(){
+  ingresar() {
 
     this.api.getUsuarios().subscribe((data) => {
-      this.users = data});
-      this.usuarios = this.users.alumnos
+      this.users = data
+    });
+
+    this.usuarios = this.users.alumnos
 
     var f = this.formularioLogin.value;
 
-    if(this.formularioLogin.invalid){
+    if (this.formularioLogin.invalid) {
       this.presentAlert();
     }
 
@@ -61,24 +63,26 @@ export class LoginPage implements OnInit {
     const resultado = this.usuarios.find(element => element.username === user.usuario && element.password === user.password);
     console.log(resultado)
 
-    if(resultado==undefined){
+    if (resultado == undefined) {
       this.presentToast("Su usuario o contrase&ntildea no con correctas",)
-    }else{
-      this.storage.guardarItem('usuario',resultado);
+    } else {
+      this.storage.guardarItem('usuario', resultado);
+      this.storage.guardarItem('ingresado','true');
+      this.router.navigate(['/home/BuscarTransporte'])
     }
 
-    
-
-      /*if(element.username == user.usuario && element.password == user.password){
-        this.presentToast("Usuario encontrao", 4000)
-      }else{
-        this.presentToast("Su usuario o contrase&ntildea no han sido encontradas", 3000)
-        console.log('no')
-      }/*
-    });
 
 
-    /*this.storage.guardarItem('user',JSON.stringify(user));*/
+    /*if(element.username == user.usuario && element.password == user.password){
+      this.presentToast("Usuario encontrao", 4000)
+    }else{
+      this.presentToast("Su usuario o contrase&ntildea no han sido encontradas", 3000)
+      console.log('no')
+    }/*
+  });
+
+
+  /*this.storage.guardarItem('user',JSON.stringify(user));*/
   }
 
 

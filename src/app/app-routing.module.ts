@@ -1,24 +1,31 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IngresadoGuard } from './Guards/ingresado.guard';
+import { NoIngresadoGuard } from './Guards/no-ingresado.guard';
 
 
 const routes: Routes = [
-  {
-    path: 'login',
-    loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule)
-  },
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule),
+    canActivate: [NoIngresadoGuard]
+  },
+  {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [IngresadoGuard]
+   
   },
   {
     path: 'recuperar',
-    loadChildren: () => import('./Pages/recuperar/recuperar.module').then( m => m.RecuperarPageModule)
+    loadChildren: () => import('./Pages/recuperar/recuperar.module').then( m => m.RecuperarPageModule),
+    canActivate: [IngresadoGuard]
+    
   },
   {
     path: '**',
