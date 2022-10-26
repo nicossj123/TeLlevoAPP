@@ -15,6 +15,8 @@ export class HomePage{
     this.router.navigate(["/home/BuscarTransporte"])
   }
   
+
+  
    segmentChanged($event){
     let segmento=$event.detail.value;
     console.log('/home/'+segmento);

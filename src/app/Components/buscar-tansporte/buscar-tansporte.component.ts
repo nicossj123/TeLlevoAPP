@@ -25,17 +25,19 @@ export class BuscarTansporteComponent implements OnInit {
     this.getUser();
   }
 
+  flag: boolean = true;
   user: any;
   users: any;
   usuarios: any[] = [];
 
   getUser() {
-    this.storage.get('usuario').then((result => {
-      this.presentToast('Bienvenido ' + result.nombre, 5000)
+    if(this.flag==true){
+      this.storage.get('usuario').then((result => {
+        this.presentToast('Bienvenido ' + result.nombre, 5000)      
     }))
-
-  }
-
+    }
+    this.cambiarFlag();
+  } 
 
   getUsers() {
     this.api.getUsuarios().subscribe((data) => {
@@ -50,6 +52,10 @@ export class BuscarTansporteComponent implements OnInit {
       duration: duracion ? duracion : 2000
     });
     toast.present();
+  }
+
+  cambiarFlag(){
+    this.flag = false
   }
 
 }
