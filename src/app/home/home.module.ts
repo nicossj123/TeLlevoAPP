@@ -7,6 +7,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { BuscarTansporteComponent } from '../Components/buscar-tansporte/buscar-tansporte.component';
+import { PopoverComponent } from '../Components/popover/popover.component';
+
 
 
 
@@ -19,6 +21,6 @@ import { BuscarTansporteComponent } from '../Components/buscar-tansporte/buscar-
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, BuscarTansporteComponent]
+  declarations: [HomePage, BuscarTansporteComponent, PopoverComponent]
 })
 export class HomePageModule {}

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  google_maps_api_key: 'AIzaSyCfg4Zhf-DDQZ-260zFZzrpRxPaWOkEoFQ'
+  MAPBOX_KEY: 'pk.eyJ1Ijoibmljb3NzajEyMyIsImEiOiJjbGE1b2xoMWcxY2Z4M3BtaG91Y3A1aGNzIn0.UEdOEgF7eWN_vXcEQZvXEg'
 };
 
 /*

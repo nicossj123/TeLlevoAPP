@@ -68,7 +68,7 @@ export class LoginPage implements OnInit {
     } else {
       this.storage.guardarItem('usuario', resultado);
       localStorage.setItem('ingresado', 'true');
-      this.router.navigate(['/home/BuscarTransporte']);
+      this.router.navigate(['/home']);
     }
 
 
@@ -169,5 +169,8 @@ export class LoginPage implements OnInit {
   }
   */
 
+  recuperar(){
+    this.router.navigate(['/recuperar'])
+  }
 
 }

@@ -4,6 +4,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { defineCustomElements } from '@teamhive/lottie-player/loader';
+import * as mapboxgl from 'mapbox-gl';
+
 
 defineCustomElements(window);
 

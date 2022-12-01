@@ -11,11 +11,11 @@ const routes: Routes = [
     children:[
       {
         path: 'BuscarTransporte',
-        component: BuscarTansporteComponent
+        component: BuscarTansporteComponent,
       },
       {
         path: 'CrearViaje',
-        component: CrearViajeComponent
+        component: CrearViajeComponent,
       }
     ]
   }

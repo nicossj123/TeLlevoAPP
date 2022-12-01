@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/Servicios/storage.service';
 import { ApiserviceService } from 'src/app/Servicios/apiservice.service';
 import { Storage } from '@ionic/storage-angular';
-import { AlertController, ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({

@@ -23,13 +23,17 @@ const routes: Routes = [
   },
   {
     path: 'recuperar',
-    loadChildren: () => import('./Pages/recuperar/recuperar.module').then( m => m.RecuperarPageModule),
-    canActivate: [IngresadoGuard]
+    loadChildren: () => import('./Pages/recuperar/recuperar.module').then( m => m.RecuperarPageModule)
+   
     
   },
   {
     path: '**',
     loadChildren: () => import('./Pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
+  {
+    path: 'mapa',
+    loadChildren: () => import('./Pages/mapa/mapa.module').then( m => m.MapaPageModule)
   },
 ];
 

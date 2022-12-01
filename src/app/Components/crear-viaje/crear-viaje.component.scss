@@ -1,33 +1,33 @@
-ion-content{
+ion-content {
     --background: #1A1A1A;
 }
 
-ion-card{
+ion-card {
     margin-top: 180px;
 }
 
-ion-label{
+ion-label {
     font-size: smaller;
 }
 
-p{
+p {
     font-family: 'Montserrat', sans-serif;
 }
 
-h1{
+h1 {
     font-family: 'Erica One', cursive;
     color: #1A1A1A;
     text-align: center;
     font-size: medium;
 }
 
-ion-input{
+ion-input {
     border-style: solid;
     border-color: #1A1A1A;
     margin-bottom: 12px;
 }
 
-ion-button{
+ion-button {
     margin-left: 25%;
     margin-right: 25%;
     width: 50%;
@@ -39,4 +39,8 @@ capacitor-google-map {
     display: inline-block;
     width: 275px;
     height: 400px;
-  }
+}
+
+#map-container {
+    height: 40%;
+}

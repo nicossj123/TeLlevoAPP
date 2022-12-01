@@ -1,7 +1,9 @@
-import { Component, OnInit, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Animation, AnimationController, ToastController } from '@ionic/angular';
-
+import { AnimationController, ToastController } from '@ionic/angular';
+import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
+import { environment } from 'src/environments/environment';
+import * as mapboxgl from 'mapbox-gl';
 
 @Component({
   selector: 'app-recuperar',
@@ -12,12 +14,12 @@ export class RecuperarPage implements OnInit {
 
   @ViewChild('animar1',{read : ElementRef, static: true}) animar1: ElementRef;
 
-  constructor(private animationCtrl : AnimationController, public toastCtrl: ToastController, private router : Router) { }
+  constructor(private animationCtrl : AnimationController, public toastCtrl: ToastController, private router : Router, private emailComposer: EmailComposer) {
+   }
 
-  correo = {
-    email: ""
-  }
+  
 
+  correo = ""
   field : string = ""
 
   ngOnInit() {
@@ -56,14 +58,23 @@ export class RecuperarPage implements OnInit {
 
   enviar() {
     if (this.validateModel(this.correo)){
-      this.presentToast("Se te ha enviado un correo para reestablecer tu contraseña", 3000)
-
+      this.abrirEmail()
       this.router.navigate(["/home"])   
     }
     else{
       this.presentToast("Debes ingresar tu " + this.field,3000)
     }
+  }
+  
+  abrirEmail(){
 
-    
+    let email = {
+      to: this.correo,
+      subject: 'Prueba moviles',
+      body: 'La idea era mandar una pass',
+      isHtml: true
+    }
+
+    this.emailComposer.open(email);
   }
 }

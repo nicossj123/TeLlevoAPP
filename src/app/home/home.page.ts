@@ -1,41 +1,68 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Animation, AnimationController } from '@ionic/angular';
-import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { AnimationController } from '@ionic/angular';
+import { GlobalService } from '../Servicios/global.service';
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage{
+export class HomePage {
 
-  lat: any; 
+  lat: any;
   long: any;
   address: any;
-  accuracy: any;
 
-  constructor(private router: Router, private activeroute: ActivatedRoute, private animationCtrl: AnimationController, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder) {
+
+
+  constructor(private router: Router, private activeroute: ActivatedRoute, private animationCtrl: AnimationController, private global: GlobalService, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder) {
     this.router.navigate(["/home/BuscarTransporte"])
-  }
-  
-   segmentChanged($event){
-    let segmento=$event.detail.value;
-    console.log('/home/'+segmento);
-    this.router.navigate(['/home/'+segmento]);
+    this.obtenerCoords();
   }
 
-  cerrarSesion(){
+  options: NativeGeocoderOptions = {
+    useLocale: true,
+    maxResults: 5
+  };
+
+  GeolocationOptions = {
+    enableHighAccuracy: true
+  };
+
+  segmentChanged($event) {
+    let segmento = $event.detail.value;
+    console.log('/home/' + segmento);
+    this.router.navigate(['/home/' + segmento]);
+  }
+
+  cerrarSesion() {
     localStorage.removeItem('ingresado')
   }
 
-  geoInformation() {
-    this.geolocation.getCurrentPosition().then((data) => {
-      this.lat = data.coords.latitude;
-      this.long = data.coords.longitude;
-      this.accuracy = data.coords.accuracy;
-      console.log('Latitud: ' + this.lat + ' Longitud: ' + this.long)
-     })
-  } 
+  obtenerCoords() {
+    this.geolocation.getCurrentPosition(this.GeolocationOptions).then((resp) => {
+      let direccion = 'C. Barros Arana 1754, 2540000 Quilpué, Valparaíso';
+      this.lat = resp.coords.latitude
+      this.long = resp.coords.longitude
+      this.obtenerDireccion(this.lat,this.long);
+      this.obtenerCoordsDir(direccion);
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+  }
+
+  obtenerDireccion(lat, long) {
+    this.nativeGeocoder.reverseGeocode(lat, long, this.options)
+  .then((result: NativeGeocoderResult[]) => console.log(JSON.stringify(result[0])))
+  .catch((error: any) => console.log(error));
+  }
+
+  obtenerCoordsDir(direccion){
+    this.nativeGeocoder.forwardGeocode(direccion)
+  .then((result: NativeGeocoderResult[]) => console.log('The coordinates are latitude=' + result[0].latitude + ' and longitude=' + result[0].longitude))
+  .catch((error: any) => console.log(error));
+  }
 }

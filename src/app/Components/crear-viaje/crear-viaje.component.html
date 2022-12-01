@@ -1,3 +1,7 @@
+<head>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+</head>
 <ion-header>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,18 +18,23 @@
     <ion-card-content>
       <p>Ingrese la capacidad de su viaje</p>
       <ion-input type="number" placeholder="Capacidad"></ion-input>
-      
+
       <p>Ingrese la matricula de su vehiculo</p>
       <ion-input maxlength="6" placeholder="Matricula"></ion-input>
 
       <p>Ingrese horario de salida</p>
       <ion-input maxlength="6" placeholder="Hora de salida"></ion-input>
-      
+
       <p>Ingrese costo del viaje</p>
       <ion-input maxlength="20" placeholder="Costo del viaje"></ion-input>
+      <p>Ingrese el destino del viaje</p>
+      <div #mapDiv class="map-container">
+
+      </div>
 
       <ion-button>Crear viaje</ion-button>
     </ion-card-content>
-
   </ion-card>
+  
+  
 </ion-content>

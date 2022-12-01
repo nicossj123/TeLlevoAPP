@@ -1,0 +1,35 @@
+:root {
+    --amarillo : #FFB800;
+    --negro : black;
+    --negro-duoc : #1A1A1A;
+}
+
+ion-label{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ion-text{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ion-grid{
+    padding: 5px;
+    ion-label{
+        font-weight: bold;
+    }
+
+    #continuar{
+        --border-style: solid;
+        
+        --border-color: #E6E6E6;
+    }
+
+    #activar{
+        --border-style: solid;
+        
+        --border-color: #5FB404;
+    }
+}
+

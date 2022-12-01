@@ -1,0 +1,26 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Erica+One&family=Montserrat:wght@500&family=Silkscreen&display=swap"
+    rel="stylesheet">
+</head>
+<ion-content color="dark">
+  <ion-grid class="ion-no-padding">
+    <ion-label class="ion-padding-horizontal">Localizac&iacute;on desactivada</ion-label>
+    <p class="ion-padding-horizontal">
+      <ion-text>
+        Habilita t&uacute; localizacion para una mejor experiencia
+      </ion-text>
+    </p>
+    <ion-row>
+      <ion-col size="5">
+        <ion-button (click)="dismissPopover(true)" size="small" color="success" strong="true" id="activar">Activar</ion-button>
+      </ion-col>
+      <ion-col size="7">
+        <ion-button (click)="dismissPopover(false)" size="small" color="light" strong="true" id="continuar">Continuar as&iacute;</ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
