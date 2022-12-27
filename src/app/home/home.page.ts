@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AnimationController } from '@ionic/angular';
+import { AnimationController, ToastController } from '@ionic/angular';
 import { GlobalService } from '../Servicios/global.service';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@awesome-cordova-plugins/native-geocoder/ngx';
@@ -18,7 +18,7 @@ export class HomePage {
 
 
 
-  constructor(private router: Router, private activeroute: ActivatedRoute, private animationCtrl: AnimationController, private global: GlobalService, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder) {
+  constructor(private router: Router, private activeroute: ActivatedRoute, private animationCtrl: AnimationController, private global: GlobalService, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, private toastCtrl: ToastController) {
     this.router.navigate(["/home/BuscarTransporte"])
     this.obtenerCoords();
   }
@@ -56,7 +56,7 @@ export class HomePage {
 
   obtenerDireccion(lat, long) {
     this.nativeGeocoder.reverseGeocode(lat, long, this.options)
-  .then((result: NativeGeocoderResult[]) => console.log(JSON.stringify(result[0])))
+  .then((result: NativeGeocoderResult[]) => this.presentToast('Te encuentras en' + JSON.stringify(result[0].countryName) + " " + JSON.stringify(result[0].locality) + " " + JSON.stringify(result[0].subLocality),6000))
   .catch((error: any) => console.log(error));
   }
 
@@ -64,5 +64,13 @@ export class HomePage {
     this.nativeGeocoder.forwardGeocode(direccion)
   .then((result: NativeGeocoderResult[]) => console.log('The coordinates are latitude=' + result[0].latitude + ' and longitude=' + result[0].longitude))
   .catch((error: any) => console.log(error));
+  }
+
+  async presentToast(msg: string, duracion?: number) {
+    const toast = await this.toastCtrl.create({
+      message: msg,
+      duration: duracion ? duracion : 2000
+    });
+    toast.present();
   }
 }

@@ -4,6 +4,7 @@ import { ApiserviceService } from 'src/app/Servicios/apiservice.service';
 import { Storage } from '@ionic/storage-angular';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/Servicios/firebase.service';
 
 @Component({
   selector: 'app-buscar-tansporte',
@@ -13,11 +14,11 @@ import { Router } from '@angular/router';
 export class BuscarTansporteComponent implements OnInit {
 
 
-  constructor(private storageService: StorageService, private api: ApiserviceService, private storage: Storage, private toastCtrl: ToastController, private router: Router) { }
+  constructor(private storageService: StorageService, private api: ApiserviceService, private storage: Storage, private toastCtrl: ToastController, private router: Router, private firebase: FirebaseService) { }
 
 
   ngOnInit() {
-    this.getUsers();
+    this.getViajes();
     
   }
 
@@ -25,25 +26,23 @@ export class BuscarTansporteComponent implements OnInit {
     this.getUser();
   }
 
+
   flag: boolean = true;
   user: any;
-  users: any;
-  usuarios: any[] = [];
+  viajes : any;
 
   getUser() {
     if(this.flag==true){
       this.storage.get('usuario').then((result => {
-        this.presentToast('Bienvenido ' + result.nombre, 5000)      
+        this.presentToast('Bienvenido ' + result.nombre, 4000)      
     }))
     }
     this.cambiarFlag();
   } 
 
-  getUsers() {
-    this.api.getUsuarios().subscribe((data) => {
-      this.users = data;
-      this.usuarios = this.users.alumnos
-    });
+  getViajes(){
+    this.firebase.obtenerViajes().subscribe(res => 
+      this.viajes = res)
   }
 
   async presentToast(msg: string, duracion?: number) {

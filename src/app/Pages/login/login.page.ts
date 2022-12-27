@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
-import { Animation, AnimationController, ToastController } from '@ionic/angular';
+import {  Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { AnimationController, ToastController } from '@ionic/angular';
 import { ApiserviceService } from 'src/app/Servicios/apiservice.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
@@ -172,5 +172,6 @@ export class LoginPage implements OnInit {
   recuperar(){
     this.router.navigate(['/recuperar'])
   }
+
 
 }

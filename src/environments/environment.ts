@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  MAPBOX_KEY: 'pk.eyJ1Ijoibmljb3NzajEyMyIsImEiOiJjbGE1b2xoMWcxY2Z4M3BtaG91Y3A1aGNzIn0.UEdOEgF7eWN_vXcEQZvXEg'
+  MAPBOX_KEY: 'pk.eyJ1Ijoibmljb3NzajEyMyIsImEiOiJjbGE1b2U3cWswbGQ1M25uOGprYmtreXZyIn0.USo2g6DCvU_fv5DOvAnnxA',
+  firebaseConfig : {
+    apiKey: "AIzaSyCnaYuzcdCSubDVpJUBydjtQv18B-3TKS0",
+    authDomain: "tellevoapp-366618.firebaseapp.com",
+    projectId: "tellevoapp-366618",
+    storageBucket: "tellevoapp-366618.appspot.com",
+    messagingSenderId: "309848660621",
+    appId: "1:309848660621:web:5e77ea409dd401b5b3e0c4"
+  }
 };
 
 /*

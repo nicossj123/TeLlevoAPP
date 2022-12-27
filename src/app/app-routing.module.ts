@@ -11,6 +11,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'viaje',
+    loadChildren: () => import('./Pages/viaje/viaje.module').then( m => m.ViajePageModule),
+  },
+  {
     path: 'login',
     loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule),
     canActivate: [NoIngresadoGuard]
@@ -23,18 +27,14 @@ const routes: Routes = [
   },
   {
     path: 'recuperar',
-    loadChildren: () => import('./Pages/recuperar/recuperar.module').then( m => m.RecuperarPageModule)
+    loadChildren: () => import('./Pages/recuperar/recuperar.module').then( m => m.RecuperarPageModule),
    
     
   },
   {
     path: '**',
     loadChildren: () => import('./Pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
-  },
-  {
-    path: 'mapa',
-    loadChildren: () => import('./Pages/mapa/mapa.module').then( m => m.MapaPageModule)
-  },
+  }
 ];
 
 @NgModule({

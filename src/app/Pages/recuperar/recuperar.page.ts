@@ -2,8 +2,8 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnimationController, ToastController } from '@ionic/angular';
 import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
-import { environment } from 'src/environments/environment';
-import * as mapboxgl from 'mapbox-gl';
+import { ApiserviceService } from 'src/app/Servicios/apiservice.service';
+
 
 @Component({
   selector: 'app-recuperar',
@@ -14,14 +14,16 @@ export class RecuperarPage implements OnInit {
 
   @ViewChild('animar1',{read : ElementRef, static: true}) animar1: ElementRef;
 
-  constructor(private animationCtrl : AnimationController, public toastCtrl: ToastController, private router : Router, private emailComposer: EmailComposer) {
+  constructor(private animationCtrl : AnimationController, public toastCtrl: ToastController, private router : Router, private emailComposer: EmailComposer, private api: ApiserviceService) {
    }
 
-  
+  users:any;
+  usuarios:any;
 
   correo = ""
+  usuario= ""
   field : string = ""
-
+  password: any
   ngOnInit() {
   }
 
@@ -67,11 +69,10 @@ export class RecuperarPage implements OnInit {
   }
   
   abrirEmail(){
-
     let email = {
       to: this.correo,
       subject: 'Prueba moviles',
-      body: 'La idea era mandar una pass',
+      body: 'Correo para enviar password',
       isHtml: true
     }
 

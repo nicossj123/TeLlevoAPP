@@ -1,7 +1,7 @@
-<head>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
-</head>
+<!--<head>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+</head>!-->
 <ion-header>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,25 +16,79 @@
     </ion-card-title>
 
     <ion-card-content>
-      <p>Ingrese la capacidad de su viaje</p>
-      <ion-input type="number" placeholder="Capacidad"></ion-input>
+      <form [formGroup]="formViaje">
+        <div>
+          <p>Ingrese la capacidad de su viaje</p>
+          <ion-input maxlength="1" type="number" placeholder="Capacidad" formControlName="Capacidad"></ion-input>
+          <div *ngIf="capacidadFieldIsValid">
+            <p class="correcto">Todo bien!</p>
+          </div>
+          <div *ngIf="capacidadFieldIsInvalid">
+            <p class="incorrecto" *ngIf="capacidadField.hasError('required')">Ingrese capacidad</p>
+            <p class="incorrecto" *ngIf="capacidadField.hasError('min')">La capacidad minima de un viaje es de 1
+              pasajero</p>
+            <p class="incorrecto" *ngIf="capacidadField.hasError('max')">La capacidad maxima de un viaje es de 8
+              pasajeros</p>
+          </div>
+        </div>
 
-      <p>Ingrese la matricula de su vehiculo</p>
-      <ion-input maxlength="6" placeholder="Matricula"></ion-input>
+        <div>
+          <p>Ingrese la matricula de su vehiculo</p>
+          <ion-input maxlength="8" placeholder="Ingrese matricula con mayusculas y guion"
+            formControlName="Matricula"></ion-input>
+          <div *ngIf="matriculaFieldIsValid">
+            <p class="correcto">Matricula aceptada!</p>
+          </div>
+          <div *ngIf="matriculaFieldIsInvalid">
+            <p class="incorrecto" *ngIf="matriculaField.hasError('required')">Ingrese matricula</p>
+            <p class="incorrecto" *ngIf="matriculaField.hasError('pattern')">La matricula ingresada no es correcta. Ej:
+              GG-FF-22</p>
+          </div>
+        </div>
 
-      <p>Ingrese horario de salida</p>
-      <ion-input maxlength="6" placeholder="Hora de salida"></ion-input>
+        <div>
+          <p>Ingrese horario de salida</p>
+          <ion-input type="time" placeholder="Hora de salida" formControlName="Salida"></ion-input>
+          <div *ngIf="salidaFieldIsValid">
+            <p class="correcto">Hora de salida correcta!</p>
+          </div>
+          <div *ngIf="salidaFieldIsInvalid">
+            <p class="incorrecto" *ngIf="salidaField.hasError('required')">La hora de salida es requerida</p>
+          </div>
+        </div>
 
-      <p>Ingrese costo del viaje</p>
-      <ion-input maxlength="20" placeholder="Costo del viaje"></ion-input>
-      <p>Ingrese el destino del viaje</p>
-      <div #mapDiv class="map-container">
+        <div>
+          <p>Ingrese costo del viaje</p>
+          <ion-input maxlength="4" placeholder="Costo del viaje" formControlName="Costo"></ion-input>
+          <div *ngIf="costoFieldIsValid">
+            <p class="correcto">Todo bien!</p>
+          </div>
+          <div>
+            <p class="incorrecto" *ngIf="costoField.hasError('required')">El costo del viaje es obligatorio</p>
+            <p class="incorrecto" *ngIf="costoField.hasError('min')">El minimo del costo por pasajero es de 500</p>
+            <p class="incorrecto" *ngIf="costoField.hasError('max')">El maximo del costo por pasajero es de 3500</p>
+          </div>
+        </div>
+        
+        <div>
+          <p>Ingrese el destino del viaje</p>
+          <ion-input maxlength="30" placeholder="Destino" formControlName="Destino"></ion-input>
+          <div *ngIf="destinoFieldIsValid">
+            <p class="correcto">El destino es valido!</p>
+          </div>
+          <div *ngIf="destinoFieldIsInvalid">
+            <p class="incorrecto" *ngIf="destinoField.hasError('required')">Ingrese destino</p>
+          </div>
+        </div>        
+      </form>
 
-      </div>
 
-      <ion-button>Crear viaje</ion-button>
+      <!--<div #mapDiv class="map-container" style='width: 350px; height: 300px;'>
+      </div>!-->
+
+      <ion-button (click)="crearViaje()">Crear viaje</ion-button>
     </ion-card-content>
   </ion-card>
-  
-  
+
+
 </ion-content>

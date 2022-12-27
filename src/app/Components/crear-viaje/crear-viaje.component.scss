@@ -28,11 +28,11 @@ ion-input {
 }
 
 ion-button {
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
-    --border-color: black;
-    --background: #1A1A1A;
+    margin-left: 25% !important;
+    margin-right: 25% !important;
+    width: 50% !important;
+    --border-color: black !important;
+    --background: #1A1A1A !important;
 }
 
 capacitor-google-map {
@@ -43,4 +43,17 @@ capacitor-google-map {
 
 #map-container {
     height: 40%;
+}
+
+.correcto{
+    font-family: 'Montserrat', sans-serif;
+    font-size: smaller;
+    color: green;
+    
+}
+
+.incorrecto{
+    font-family: 'Montserrat', sans-serif;
+    font-size: smaller;
+    color: red;
 }
